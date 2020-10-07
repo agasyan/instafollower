@@ -23,4 +23,6 @@ TARGET_IG="FOO BAR"
 ***
 
 ### Reference:
-* https://stackoverflow.com/questions/37658723/how-to-get-followers-and-following-list-in-instagram-via-http-requests
+* https://stackoverflow.com/questions/37658723/how-to-get-followers-and-following-list-in-instagram-via-http-
+* https://www.programiz.com/python-programming/shallow-deep-copy#:~:text=help%20of%20examples.-,Copy%20an%20Object%20in%20Python,reference%20of%20the%20original%20object.
+

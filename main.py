@@ -1,4 +1,5 @@
 import os
+import copy
 import instaloader
 
 # load_env
@@ -28,5 +29,22 @@ if __name__ == "__main__":
             print(str(counter) + ":" + follower.username)
             arr.append(follower.username)
         arr_of_targets_follower.append(arr)
-    for i in arr_of_targets_follower:
-        print(i)
+    # Same checker
+    arr_copy_tmp = copy.copy(arr_of_targets_follower)
+    arr_copy_tmp.pop(0)
+    ans = []
+    counter = 1
+    for i in range(len(arr_of_targets_follower[0])):
+        print("counter:" + str(i))
+        temp = arr_of_targets_follower[0][i]
+        checker = []
+        for elem in arr_copy_tmp:
+            if temp in elem:
+                checker.append(True)
+            else:
+                checker.append(False)
+        if not (False in checker):
+            ans.append(temp)
+        counter += 1
+    print(ans)
+    print(len(ans))
