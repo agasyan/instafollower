@@ -14,7 +14,9 @@ In order to run this repo, you need to:
 ```
 IG_USERNAME=[YOUR_IG_USERNAME]
 IG_PASSWORD=[YOUR_IG_PASS]
+TARGET_IG="FOO BAR"
 ```
+`TARGET_IG` is target to get instagram list of account to check the same follower seperated by space
 5. run the program with `python3 main.py`
 
 
