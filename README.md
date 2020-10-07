@@ -1,5 +1,5 @@
 # instafollower
-Get same follower from some acc
+Get same follower from some acc, i open this project to particapate in hacktoberfest. This project is for fun to know public instagram follower from several instagram account. Anyone can contribute anything to make this project better and better :)
 
 ## Setup
 How to run the project locally
