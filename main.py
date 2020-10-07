@@ -17,34 +17,39 @@ if __name__ == "__main__":
     # Login or load session to see some public ig follower or private followed ig
     L.login(user, password)
     arr_of_targets_follower = []
-    for target in list_target:
-        arr = []
-        # Obtain profile metadata
-        profile = instaloader.Profile.from_username(L.context, target)
-        # Print list of followees
-        counter = 0
-        # followee to profile.get_followees() who the target follow and profile.get_followers to get target follower
-        for follower in profile.get_followers():
-            counter = counter + 1
-            print(str(counter) + ":" + follower.username)
-            arr.append(follower.username)
-        arr_of_targets_follower.append(arr)
-    # Same checker
-    arr_copy_tmp = copy.copy(arr_of_targets_follower)
-    arr_copy_tmp.pop(0)
-    ans = []
-    counter = 1
-    for i in range(len(arr_of_targets_follower[0])):
-        print("counter:" + str(i))
-        temp = arr_of_targets_follower[0][i]
-        checker = []
-        for elem in arr_copy_tmp:
-            if temp in elem:
-                checker.append(True)
-            else:
-                checker.append(False)
-        if not (False in checker):
-            ans.append(temp)
-        counter += 1
-    print(ans)
-    print(len(ans))
+    try:
+        for target in list_target:
+            arr = []
+            # Obtain profile metadata
+            profile = instaloader.Profile.from_username(L.context, target)
+            # Print list of followees
+            counter = 0
+            if profile.followers() > 1500:
+                raise Exception("Not Allowed if above 1500")
+            # followee to profile.get_followees() who the target follow and profile.get_followers to get target follower
+            for follower in profile.get_followers():
+                counter = counter + 1
+                print(str(counter) + ":" + follower.username)
+                arr.append(follower.username)
+            arr_of_targets_follower.append(arr)
+        # Same checker
+        arr_copy_tmp = copy.copy(arr_of_targets_follower)
+        arr_copy_tmp.pop(0)
+        ans = []
+        counter = 1
+        for i in range(len(arr_of_targets_follower[0])):
+            print("counter:" + str(i))
+            temp = arr_of_targets_follower[0][i]
+            checker = []
+            for elem in arr_copy_tmp:
+                if temp in elem:
+                    checker.append(True)
+                else:
+                    checker.append(False)
+            if not (False in checker):
+                ans.append(temp)
+            counter += 1
+        print(ans)
+        print(len(ans))
+    except Exception:
+        print("Target followers above 1500 try again")
